@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_imgwidget/screens/dashboard_screen.dart';
-import 'package:project_imgwidget/components/bottomav/bottomnav.dart';
+import 'package:nike_shoes_list_product_app/components/bottomnav/bottomnav.dart';
+import 'package:nike_shoes_list_product_app/screens/dashboard_screen.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});

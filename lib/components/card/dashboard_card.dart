@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:project_imgwidget/models/sandal.dart';
-import 'package:project_imgwidget/screens/detail_sepatu_screen.dart';
 import 'package:intl/intl.dart';
+import 'package:nike_shoes_list_product_app/models/sandal.dart';
+import 'package:nike_shoes_list_product_app/screens/detail_sepatu_screen.dart';
 
 Widget dashboardCard(BuildContext context) {
   List<Sepatu> sepatu = Sepatu.getSepatu();
@@ -31,10 +31,7 @@ Widget dashboardCard(BuildContext context) {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Icon(
-                              Icons.favorite_outline,
-                              size: 32,
-                            ),
+                            const Icon(Icons.favorite_outline, size: 32),
                             const Spacer(),
                             Text(
                               sepatuItem.nama,
@@ -44,30 +41,33 @@ Widget dashboardCard(BuildContext context) {
                               ),
                             ),
                             Text(
-                                NumberFormat.currency(
-                                  locale: 'id', // Lokal untuk Bahasa Indonesia
-                                  symbol: 'Rp. ',
-                                  decimalDigits:
-                                      0, // Jumlah digit di belakang koma
-                                ).format(sepatuItem.harga),
-                                style: GoogleFonts.poppins(
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.w500,
-                                )),
-                            const SizedBox(
-                              height: 20,
+                              NumberFormat.currency(
+                                locale: 'id', // Lokal untuk Bahasa Indonesia
+                                symbol: 'Rp. ',
+                                decimalDigits:
+                                    0, // Jumlah digit di belakang koma
+                              ).format(sepatuItem.harga),
+                              style: GoogleFonts.poppins(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
+                            const SizedBox(height: 20),
                             ElevatedButton(
                               onPressed: () {
-                                Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) {
-                                  return DetailSepatu(
-                                    sepatu: 'ok ${sepatuItem.nama}',
-                                    fotospt: "assets/${sepatuItem.foto}",
-                                    harga: sepatuItem.harga,
-                                    rating: sepatuItem.rating,
-                                  );
-                                }));
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      return DetailSepatu(
+                                        sepatu: 'ok ${sepatuItem.nama}',
+                                        fotospt: "assets/${sepatuItem.foto}",
+                                        harga: sepatuItem.harga,
+                                        rating: sepatuItem.rating,
+                                      );
+                                    },
+                                  ),
+                                );
                               },
                               style: ButtonStyle(
                                 shape: MaterialStateProperty.all(
@@ -75,8 +75,9 @@ Widget dashboardCard(BuildContext context) {
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
                                 ),
-                                backgroundColor:
-                                    MaterialStateProperty.all(Colors.black),
+                                backgroundColor: MaterialStateProperty.all(
+                                  Colors.black,
+                                ),
                               ),
                               child: Text(
                                 "Detail",
@@ -125,9 +126,7 @@ Widget dashboardCard(BuildContext context) {
               ],
             ),
             if (sepatu.indexOf(sepatuItem) < sepatu.length - 1)
-              const SizedBox(
-                height: 45,
-              ),
+              const SizedBox(height: 45),
           ],
         );
       }).toList(),

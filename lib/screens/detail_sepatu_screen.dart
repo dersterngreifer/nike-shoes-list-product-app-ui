@@ -55,23 +55,21 @@ class _DetailSepatuState extends State<DetailSepatu> {
                     Text(
                       "Nike Product",
                       style: GoogleFonts.poppins(
-                          fontSize: 16,
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w500),
+                        fontSize: 16,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     Row(
                       children: [
-                        Icon(
-                          Icons.star,
-                          size: 30,
-                          color: Colors.yellow[600],
-                        ),
+                        Icon(Icons.star, size: 30, color: Colors.yellow[600]),
                         Text(
                           widget.rating.toString(),
                           style: GoogleFonts.poppins(
-                              fontSize: 16,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500),
+                            fontSize: 16,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ],
                     ),
@@ -86,22 +84,24 @@ class _DetailSepatuState extends State<DetailSepatu> {
                     Text(
                       widget.sepatu,
                       style: GoogleFonts.poppins(
-                          fontSize: 24,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
+                        fontSize: 24,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     Row(
                       children: [
                         Text(
                           NumberFormat.currency(
-                                  locale: 'id',
-                                  symbol: 'Rp. ',
-                                  decimalDigits: 0)
-                              .format(widget.harga),
+                            locale: 'id',
+                            symbol: 'Rp. ',
+                            decimalDigits: 0,
+                          ).format(widget.harga),
                           style: GoogleFonts.poppins(
-                              fontSize: 24,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold),
+                            fontSize: 24,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ],
                     ),
@@ -116,9 +116,10 @@ class _DetailSepatuState extends State<DetailSepatu> {
                     Text(
                       "Ukuran : ",
                       style: GoogleFonts.poppins(
-                          fontSize: 16,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500),
+                        fontSize: 16,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     const SizedBox(height: 20),
                     SizedBox(
@@ -130,19 +131,22 @@ class _DetailSepatuState extends State<DetailSepatu> {
                             width: 80,
                             height: 80,
                             decoration: BoxDecoration(
-                                color: const Color(0xFFF2F2F2),
-                                borderRadius: BorderRadius.circular(10)),
+                              color: const Color(0xFFF2F2F2),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
                             child: Center(
-                                child: Text(
-                              ukuran[index].toString(),
-                              style: GoogleFonts.poppins(
-                                  fontSize: 16, fontWeight: FontWeight.bold),
-                            )),
+                              child: Text(
+                                ukuran[index].toString(),
+                                style: GoogleFonts.poppins(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
                           );
                         },
-                        separatorBuilder: (context, index) => const SizedBox(
-                          width: 10,
-                        ),
+                        separatorBuilder: (context, index) =>
+                            const SizedBox(width: 10),
                         itemCount: 5,
                       ),
                     ),
@@ -157,7 +161,9 @@ class _DetailSepatuState extends State<DetailSepatu> {
                     Text(
                       "Deskripsi : ",
                       style: GoogleFonts.poppins(
-                          fontSize: 16, fontWeight: FontWeight.w500),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     const SizedBox(height: 20),
                     Text(
@@ -185,7 +191,10 @@ class _DetailSepatuState extends State<DetailSepatu> {
           child: Text(
             "Pesan Sekarang",
             style: GoogleFonts.poppins(
-                fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
           ),
         ),
       ),

@@ -6,18 +6,16 @@ Widget appBarHome() {
     padding: const EdgeInsets.all(20.0),
     child: Row(
       children: [
-        const Image(
-          image: AssetImage("assets/nike_icon_mark.png"),
-          width: 80,
-        ),
+        const Image(image: AssetImage("assets/nike_icon_mark.png"), width: 80),
         Text(
           "NIKE",
           style: GoogleFonts.poppins(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-              fontStyle: FontStyle.italic),
-        )
+            fontSize: 32,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+            fontStyle: FontStyle.italic,
+          ),
+        ),
       ],
     ),
   );
