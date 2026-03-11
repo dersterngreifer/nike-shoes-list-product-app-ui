@@ -1,43 +1,46 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 Widget bottomNav() {
-  return Container(
-    padding: const EdgeInsets.all(0),
-    decoration: BoxDecoration(
-      boxShadow: [
-        BoxShadow(
-          color: Colors.black.withOpacity(0.2),
-          blurRadius: 10,
-          spreadRadius: 0,
-          offset: const Offset(0, -5),
-        ),
-      ],
-    ),
-    child: ClipRRect(
-      borderRadius: const BorderRadius.only(
-        topLeft: Radius.circular(20),
-        topRight: Radius.circular(20),
-      ),
+  return ClipRect(
+    child: BackdropFilter(
+      filter: ImageFilter.blur(sigmaX: 24, sigmaY: 24),
       child: Container(
-        decoration: const BoxDecoration(color: Colors.white),
-        child: TabBar(
-          labelColor: Colors.green,
-          tabs: const [
-            Tab(icon: Icon(Icons.home_outlined, size: 28), text: "Home"),
-            Tab(icon: Icon(Icons.bookmark_outline, size: 28), text: "Saved"),
-            Tab(
-              icon: Icon(Icons.notification_add_rounded, size: 28),
-              text: "Notifikasi",
+        decoration: BoxDecoration(
+          color: Colors.white.withValues(alpha: 0.82),
+          border: Border(
+            top: BorderSide(
+              color: Colors.black.withValues(alpha: 0.07),
+              width: 0.8,
             ),
-            Tab(icon: Icon(Icons.person_outline, size: 28), text: "Saved"),
+          ),
+        ),
+        child: TabBar(
+          labelColor: Colors.black,
+          unselectedLabelColor: Colors.black38,
+          tabs: const [
+            Tab(icon: Icon(Icons.home_rounded, size: 26), text: 'Home'),
+            Tab(icon: Icon(Icons.bookmark_rounded, size: 26), text: 'Saved'),
+            Tab(
+              icon: Icon(Icons.notifications_rounded, size: 26),
+              text: 'Notif',
+            ),
+            Tab(icon: Icon(Icons.person_rounded, size: 26), text: 'Profile'),
           ],
           dividerColor: Colors.transparent,
-          unselectedLabelColor: Color(0xFF19191B),
-          labelStyle: GoogleFonts.poppins(fontSize: 14),
+          labelStyle: GoogleFonts.poppins(
+            fontSize: 11,
+            fontWeight: FontWeight.w600,
+          ),
+          unselectedLabelStyle: GoogleFonts.poppins(
+            fontSize: 11,
+            fontWeight: FontWeight.w400,
+          ),
           indicatorSize: TabBarIndicatorSize.tab,
           indicator: const BoxDecoration(
-            border: Border(top: BorderSide(color: Colors.green, width: 4)),
+            border: Border(top: BorderSide(color: Colors.black, width: 2.5)),
           ),
         ),
       ),

@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:nike_shoes_list_product_app/pages/home.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -11,8 +13,8 @@ void main() {
       systemNavigationBarColor: Colors.transparent,
       systemNavigationBarIconBrightness: Brightness.dark,
       systemNavigationBarDividerColor: Colors.transparent,
-      systemNavigationBarContrastEnforced: true,
-      systemStatusBarContrastEnforced: true,
+      systemNavigationBarContrastEnforced: false,
+      systemStatusBarContrastEnforced: false,
     ),
   );
   runApp(const MyApp());
@@ -23,9 +25,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      theme: ThemeData(
+        useMaterial3: true,
+        scaffoldBackgroundColor: Colors.white,
+        colorScheme: const ColorScheme.light(
+          primary: Colors.black,
+          surface: Colors.white,
+        ),
+      ),
+      home: const HomePage(),
     );
   }
 }
