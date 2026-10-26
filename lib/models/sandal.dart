@@ -1,43 +1,34 @@
-class Sepatu {
-  late String nama, foto;
-  late int harga;
-  late double rating;
+class Shoe {
+  final String name;
+  final String image;
+  final int price;
+  final double rating;
 
-  Sepatu({
-    required this.nama,
-    required this.foto,
-    required this.harga,
+  const Shoe({
+    required this.name,
+    required this.image,
+    required this.price,
     required this.rating,
   });
 
-  static List<Sepatu> getSepatu() {
-    List<Sepatu> sepatuSaya = [
-      Sepatu(nama: "Air Max", foto: "Green 1.png", harga: 1200000, rating: 4.5),
-      Sepatu(
-        nama: "Air Force",
-        foto: "nike main.png",
-        harga: 1000000,
-        rating: 4.2,
-      ),
-      Sepatu(
-        nama: "React Element",
-        foto: "Shoe 1.png",
-        harga: 900000,
-        rating: 4.7,
-      ),
-      Sepatu(nama: "Free Run", foto: "toppng.png", harga: 800000, rating: 4.0),
-      Sepatu(
-        nama: "Epic React",
-        foto: "Yellow Shoe.png",
-        harga: 1500000,
-        rating: 4.8,
-      ),
-      // Sepatu(nama: "Zoom Pegasus", harga: 1100000, rating: 4.4),
-      // Sepatu(nama: "Air Zoom", harga: 1300000, rating: 4.3),
-      // Sepatu(nama: "Joyride Run", harga: 1400000, rating: 4.6),
-      // Sepatu(nama: "Renew Run", harga: 950000, rating: 4.1),
-      // Sepatu(nama: "Air Zoom", harga: 1600000, rating: 4.9),
+  // Backward compatibility getters
+  String get nama => name;
+  String get foto => image;
+  int get harga => price;
+
+  static List<Shoe> getShoes() {
+    return const [
+      Shoe(name: "Air Max", image: "Green 1.png", price: 120, rating: 4.5),
+      Shoe(name: "Air Force", image: "nike main.png", price: 100, rating: 4.2),
+      Shoe(name: "React Element", image: "Shoe 1.png", price: 90, rating: 4.7),
+      Shoe(name: "Free Run", image: "toppng.png", price: 80, rating: 4.0),
+      Shoe(name: "Epic React", image: "Yellow Shoe.png", price: 150, rating: 4.8),
     ];
-    return sepatuSaya;
   }
+
+  // Alias for backward compatibility
+  static List<Shoe> getSepatu() => getShoes();
 }
+
+// Backward compatibility alias
+typedef Sepatu = Shoe;

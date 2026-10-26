@@ -24,14 +24,14 @@ const List<Color> _badgeColors = [
 
 Widget dashboardCard(BuildContext context) {
   final size = MediaQuery.of(context).size;
-  final List<Sepatu> sepatu = Sepatu.getSepatu();
+  final List<Shoe> shoes = Shoe.getShoes();
   final double cardHeight = size.width * 0.52;
 
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 24),
     child: Column(
-      children: List.generate(sepatu.length, (index) {
-        final item = sepatu[index];
+      children: List.generate(shoes.length, (index) {
+        final item = shoes[index];
         final cardColor = _cardColors[index % _cardColors.length];
         final badgeColor = _badgeColors[index % _badgeColors.length];
 
@@ -107,7 +107,7 @@ Widget dashboardCard(BuildContext context) {
 
                         // Product name
                         Text(
-                          item.nama,
+                          item.name,
                           style: GoogleFonts.poppins(
                             fontSize: size.width * 0.055,
                             fontWeight: FontWeight.w800,
@@ -120,28 +120,28 @@ Widget dashboardCard(BuildContext context) {
                         // Price
                         Text(
                           NumberFormat.currency(
-                            locale: 'id',
-                            symbol: 'Rp ',
-                            decimalDigits: 0,
-                          ).format(item.harga),
+                            locale: 'en_US',
+                            symbol: '\$',
+                            decimalDigits: 2,
+                          ).format(item.price),
                           style: GoogleFonts.poppins(
                             fontSize: size.width * 0.036,
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.w600,
                             color: Colors.black54,
                           ),
                         ),
                         const SizedBox(height: 14),
 
-                        // Buy button
+                        // View details button
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (_) => DetailSepatu(
-                                  sepatu: item.nama,
-                                  fotospt: 'assets/${item.foto}',
-                                  harga: item.harga,
+                                builder: (_) => ShoeDetailScreen(
+                                  shoeName: item.name,
+                                  shoeImage: 'assets/${item.image}',
+                                  price: item.price,
                                   rating: item.rating,
                                   cardColor: cardColor,
                                 ),
@@ -158,7 +158,7 @@ Widget dashboardCard(BuildContext context) {
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Text(
-                              'Lihat Detail',
+                              'View Details',
                               style: GoogleFonts.poppins(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w600,
@@ -177,9 +177,9 @@ Widget dashboardCard(BuildContext context) {
                   bottom: -18,
                   right: -24,
                   child: Hero(
-                    tag: item.nama,
+                    tag: item.name,
                     child: Image.asset(
-                      'assets/${item.foto}',
+                      'assets/${item.image}',
                       width: size.width * 0.54,
                     ),
                   ),
@@ -221,7 +221,7 @@ Widget dashboardCard(BuildContext context) {
                 ),
               ],
             ),
-            if (index < sepatu.length - 1) const SizedBox(height: 28),
+            if (index < shoes.length - 1) const SizedBox(height: 28),
           ],
         );
       }),

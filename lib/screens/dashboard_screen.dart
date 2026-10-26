@@ -140,12 +140,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
             // Product cards
             dashboardCard(context),
 
-            // Bottom padding for nav bar
+            // Bottom padding for elevated nav bar
             SizedBox(
               height:
                   kBottomNavigationBarHeight +
                   MediaQuery.of(context).padding.bottom +
-                  24,
+                  48,
             ),
           ],
         ),

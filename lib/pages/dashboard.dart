@@ -26,7 +26,7 @@ class _DashboardPageState extends State<DashboardPage> {
           extendBody: true,
           backgroundColor: Colors.white,
           body: const DashboardScreen(),
-          bottomNavigationBar: bottomNav(),
+          bottomNavigationBar: bottomNav(context),
         ),
       ),
     );
